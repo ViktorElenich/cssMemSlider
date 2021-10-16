@@ -1,1 +1,1 @@
-# https://viktorelenich.github.io/cssMemSlider/cssMemSlider
+# https://viktorelenich.github.io/cssMemSlider/cssMemSlider/
