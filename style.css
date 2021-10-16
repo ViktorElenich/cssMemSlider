@@ -1,0 +1,195 @@
+* {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+  padding: 0;
+  background: rgb(14, 13, 13);
+  animation-name: animationBody;
+  animation-duration: 3s;
+}
+p {
+  padding: 0;
+  margin: 0;
+}
+.navigation {
+  display: flex;
+  justify-content: flex-end;
+  flex-direction: row;
+}
+.label {
+  padding: 0.5rem;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.4s ease;
+  animation-name: animationDots;
+  animation-duration: 2s;
+}
+.label:hover {
+  opacity: 0.8;
+  transform: scale(1.1);
+}
+.element {
+  width: 1rem;
+  height: 1rem;
+  border-radius: 50%;
+  background-color: #87ceeb;
+  display: block;
+  border: 0.125rem solid #87ceeb;
+  box-shadow: 0 0 15px blueviolet;
+  transition: all 0.5s;
+}
+input[name="slider"] {
+  visibility: hidden;
+}
+.wrapper {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  display: grid;
+  justify-content: center;
+  align-content: center;
+  grid-template-areas:
+    "main main"
+    "footer footer";
+  grid-template-rows: 400px 200px;
+}
+.slides {
+  margin: 0 auto;
+  grid-area: main;
+  position: relative;
+  overflow: hidden;
+  max-width: 700px;
+  height: auto;
+  animation-name: animationSlider;
+  animation-duration: 2s;
+}
+.slide_items {
+  width: 400%;
+  height: 100%;
+  display: flex;
+}
+.slide {
+  width: 25%;
+  transition: all 0.6s ease;
+}
+.slide img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 15px;
+}
+.text p {
+  font-size: 18px;
+  color: white;
+  transition: all 0.8s ease-in;
+}
+#slider1:checked ~ .slides .slide_items .s1 {
+  margin-left: 0;
+}
+#slider2:checked ~ .slides .slide_items .s1 {
+  margin-left: -25%;
+}
+#slider3:checked ~ .slides .slide_items .s1 {
+  margin-left: -50%;
+}
+#slider4:checked ~ .slides .slide_items .s1 {
+  margin-left: -75%;
+}
+#slider1:checked ~ footer .text .text_discr .s2 {
+  margin-left: 0;
+}
+#slider2:checked ~ footer .text .text_discr .s2 {
+  margin-left: -25%;
+}
+#slider3:checked ~ footer .text .text_discr .s2 {
+  margin-left: -50%;
+}
+#slider4:checked ~ footer .text .text_discr .s2 {
+  margin-left: -75%;
+}
+#slider1:checked ~ footer .dots_navigation #dot_1 .element,
+#slider2:checked ~ footer .dots_navigation #dot_2 .element,
+#slider3:checked ~ footer .dots_navigation #dot_3 .element,
+#slider4:checked ~ footer .dots_navigation #dot_4 .element {
+  background-color: rgb(46, 44, 44);
+}
+footer {
+  max-width: 700px;
+  height: 100px;
+  grid-area: footer;
+  justify-content: space-around;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+.text {
+  position: relative;
+  overflow: hidden;
+  max-width: 200px;
+  height: auto;
+  animation-name: animationSlider;
+  animation-duration: 2s;
+}
+.text_discr {
+  width: 400%;
+  height: 100%;
+  display: flex;
+}
+.slideText {
+  width: 25%;
+  transition: all 0.6s ease;
+}
+@keyframes animationSlider {
+  from {
+    left: -150%;
+  }
+  to {
+    left: 0;
+  }
+}
+@keyframes animationBody {
+  from {
+    opacity: 0.2;
+    background: white;
+  }
+  to {
+    opacity: 1;
+    background: rgb(14, 13, 13);
+  }
+}
+@keyframes animationDots {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@media (max-width: 768px) {
+  .slides {
+    max-width: 93%;
+  }
+  footer {
+    max-width: 93%;
+    margin: 0 25px;
+  }
+}
+@media (max-width: 610px) {
+  .wrapper {
+    grid-template-rows: 300px 200px;
+  }
+  footer {
+    grid-template-areas: "dots" "text";
+    grid-template-rows: 1fr 1fr;
+    grid-template-columns: none;
+    justify-content: center;
+    height: 60%;
+  }
+  .text {
+    grid-area: text;
+  }
+  .dots_navigation {
+    grid-area: dots;
+    margin: 0 auto;
+  }
+}
