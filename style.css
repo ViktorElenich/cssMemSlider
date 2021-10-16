@@ -5,6 +5,8 @@ body {
   margin: 0;
   padding: 0;
   background: rgb(14, 13, 13);
+  animation-name: animationBody;
+  animation-duration: 3s;
 }
 p {
   padding: 0;
@@ -19,8 +21,9 @@ p {
   padding: 0.5rem;
   border-radius: 50%;
   cursor: pointer;
-  opacity: 0.5;
   transition: all 0.4s ease;
+  animation-name: animationDots;
+  animation-duration: 2s;
 }
 .label:hover {
   opacity: 0.8;
@@ -58,6 +61,8 @@ input[name="slider"] {
   overflow: hidden;
   max-width: 700px;
   height: auto;
+  animation-name: animationSlider;
+  animation-duration: 2s;
 }
 .slide_items {
   width: 400%;
@@ -121,6 +126,8 @@ footer {
   overflow: hidden;
   max-width: 200px;
   height: auto;
+  animation-name: animationSlider;
+  animation-duration: 2s;
 }
 .text_discr {
   width: 400%;
@@ -131,31 +138,57 @@ footer {
   width: 25%;
   transition: all 0.6s ease;
 }
+@keyframes animationSlider {
+  from {
+    left: -150%;
+  }
+  to {
+    left: 0;
+  }
+}
+@keyframes animationBody {
+  from {
+    opacity: 0.2;
+    background: white;
+  }
+  to {
+    opacity: 1;
+    background: rgb(14, 13, 13);
+  }
+}
+@keyframes animationDots {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
 
-@media (max-width: 768px){
-  .slides{
+@media (max-width: 768px) {
+  .slides {
     max-width: 93%;
   }
-  footer{
+  footer {
     max-width: 93%;
     margin: 0 25px;
   }
 }
-@media (max-width: 610px){
-  .wrapper{
+@media (max-width: 610px) {
+  .wrapper {
     grid-template-rows: 300px 200px;
   }
-  footer{
+  footer {
     grid-template-areas: "dots" "text";
     grid-template-rows: 1fr 1fr;
     grid-template-columns: none;
     justify-content: center;
     height: 60%;
   }
-  .text{
+  .text {
     grid-area: text;
   }
-  .dots_navigation{
+  .dots_navigation {
     grid-area: dots;
     margin: 0 auto;
   }
