@@ -33,6 +33,7 @@ p {
   background-color: #87ceeb;
   display: block;
   border: 0.125rem solid #87ceeb;
+  box-shadow: 0 0 15px blueviolet;
   transition: all 0.5s;
 }
 input[name="slider"] {
@@ -51,6 +52,7 @@ input[name="slider"] {
   grid-template-rows: 400px 200px;
 }
 .slides {
+  margin: 0 auto;
   grid-area: main;
   position: relative;
   overflow: hidden;
@@ -74,8 +76,6 @@ input[name="slider"] {
 .text p {
   font-size: 18px;
   color: white;
-  bottom: 0;
-  left: 0;
   transition: all 0.8s ease-in;
 }
 #slider1:checked ~ .slides .slide_items .s1 {
@@ -132,3 +132,31 @@ footer {
   transition: all 0.6s ease;
 }
 
+@media (max-width: 768px){
+  .slides{
+    max-width: 93%;
+  }
+  footer{
+    max-width: 93%;
+    margin: 0 25px;
+  }
+}
+@media (max-width: 610px){
+  .wrapper{
+    grid-template-rows: 300px 200px;
+  }
+  footer{
+    grid-template-areas: "dots" "text";
+    grid-template-rows: 1fr 1fr;
+    grid-template-columns: none;
+    justify-content: center;
+    height: 60%;
+  }
+  .text{
+    grid-area: text;
+  }
+  .dots_navigation{
+    grid-area: dots;
+    margin: 0 auto;
+  }
+}
